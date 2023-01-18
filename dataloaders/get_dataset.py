@@ -1,7 +1,10 @@
 from dataloaders.fake_fnc import FakeFNC
 from dataloaders.load_dev_data import UKBData
 from dataloaders.load_UKB_HCP1200 import UKBHCP1200Data
+from dataloaders.load_UKB_HCP1200_validation import UKBHCP1200DataValid
+from dataloaders.load_trainCV_validation import CVValid
 from dataloaders.cadasil import CadasilData
+from dataloaders.cadasil_withControls import CadasilControlData
 
 
 def get_dataset(key, *args, **kwargs):
@@ -11,5 +14,11 @@ def get_dataset(key, *args, **kwargs):
         return UKBData(*args, **kwargs)
     elif key.lower() == "ukbhcp1200":
         return UKBHCP1200Data(*args, **kwargs)
+    elif key.lower() == "ukbhcp1200valid":
+        return UKBHCP1200DataValid(*args, **kwargs)
     elif key.lower() == "cadasil":
         return CadasilData(*args, **kwargs)
+    elif key.lower() == "cadasilcontrol":
+        return CadasilControlData(*args, **kwargs)
+    elif key.lower() == 'cvvalid':
+        return CVValid(*args, **kwargs)
