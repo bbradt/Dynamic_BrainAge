@@ -63,7 +63,7 @@ class CadasilData(Dataset):
 
 if __name__ == "__main__":
     from torch.utils.data import DataLoader
-    test_dataset = CadasilData(N_subs=22)
+    test_dataset = CadasilData(N_subs=15)
     test_dataloader = DataLoader(test_dataset, batch_size=4, shuffle=True)
     for batch_i, (fnc, age) in enumerate(test_dataloader):
         print("Loaded batch %d with FNC shape %s, and average age %.2f" %
