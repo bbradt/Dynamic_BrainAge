@@ -3,7 +3,7 @@ from torch import nn, optim
 from torch.utils.data import DataLoader, Subset
 from catalyst import dl, utils
 from dataloaders.fake_fnc import FakeFNC
-from dataloaders.load_UKB_HCP1200 import DevData
+from dataloaders.load_UKB_HCP1200 import UKBHCP1200Data
 from models.bilstm import BiLSTM
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -13,7 +13,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 print(torch.cuda.is_available())
 
 criterion = nn.MSELoss()
-full_dataset = DevData(N_subs=10000) #FakeFNC(N_hc=4096, N_sz=4096)
+full_dataset = UKBHCP1200Data(N_subs=10000) #FakeFNC(N_hc=4096, N_sz=4096)
 model = BiLSTM(seqlen=full_dataset.seqlen, dim=full_dataset.dim)
 optimizer = optim.Adam(model.parameters(), lr=1e-3)
 full_idx = np.arange(len(full_dataset))

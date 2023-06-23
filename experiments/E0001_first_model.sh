@@ -20,7 +20,7 @@ num_folds_=( "10" )
 epoch_=( "100" )
 train_metrics_=( '["loss","correlation"]' )
 test_metrics_=( '["loss","correlation"]' )
-seed_=( "314159" )
+seed_=( "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" )
 k_=( 0 1 2 3 4 5 6 7 8 9 )
 run=0
 for criterion in "${criterion_[@]}"; do
